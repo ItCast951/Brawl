@@ -522,11 +522,7 @@ H1 {
 
     }
   else{ //иначе
-	  alert("Хуй");
-      Telegram.WebApp.MainButton
-        .setText('Открыть сундук')
-        .show()
-        .onClick(function(){ webviewClose(); });
+	 document.getElementsByTagName("body")[0].style.display = "none";
   }
 }
 if(initData != ""){
