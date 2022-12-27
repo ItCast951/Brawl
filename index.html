@@ -38,8 +38,7 @@
         }
 H1 {
             color: var(--tg-theme-link-color, #2678b6);
-    font-family: Oswald;
-    font-size: 5vw;
+
         }
         img{
 
@@ -205,20 +204,20 @@ H1 {
 
 <section>
    <div class="NONONO">
+      <H1 id="greeting">Привет,</H1>
        <H1>Магазин скинов телеграм бота <a href="https://t.me/TelegaMineBot">@TelegaMineBot</a></H1>
-       <button class="btndon">
+       <button class="btndon" onclick="location.href='index.html#bottom'">
            Перейти к донатным скинам
        </button>
    <img src="https://telegra.ph/file/87e0458fae31cdcbcc9ce.png">
    <button class="a1"
-       onclick="alerted(1);"
+       onclick="alerted(10);"
         type="button"
         >
        1 - бесплатный
    </button>
    <img src="https://telegra.ph/file/39a481081582c7c9e4847.png">
    <button class="2"
-       onclick="alerted(2);"
         type="button">
        2 - бесплатный
    </button>
@@ -444,12 +443,14 @@ H1 {
         type="button">
        46 - 1000000 🪙
    </button>
+
    <img src="https://telegra.ph/file/0a4e8b307acf161c3b560.png">
+   <a name="bottom"></a>
    <button class="47"
         type="button">
        47 - 1000000 🪙
    </button>
-   <a name="bottom"></a>
+
    <img src="https://telegra.ph/file/189313c304f776db87879.png" >
    <button class="48"
         type="button">
@@ -497,7 +498,7 @@ H1 {
    </button>
 
 
-    <h1 id="greeting"></h1>
+
     </div>
 
 
@@ -517,26 +518,17 @@ H1 {
 
     function alerted(Chosen){
 
-    if (tg.MainButton.isVisible){ //если кнопка показана
-        tg.MainButton.hide() //скрываем кнопку
-
-    }
-  else{ //иначе
-	 document.getElementsByTagName("body")[0].style.display = "none";
-  }
-}
-if(initData != ""){
-    document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
-    document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
-    document.querySelector('#initDataUnsafe').innerHTML = JSON.stringify(initDataUnsafe, null, 2);
-    document.querySelector('#themeData').html(JSON.stringify(Telegram.WebApp.themeParams, null, 2));
-
-
-
-    Telegram.WebApp.MainButton
-        .setText('Открыть сундук')
+      Telegram.WebApp.MainButton
+        .setText(`Купить/надеть, ${Chosen}`)
         .show()
         .onClick(function(){ webviewClose(); });
+
+}
+if(initData != ""){
+
+
+
+document.querySelector('#greeting').innerHTML = `Привет, ${initDataUnsafe.user.first_name}!`;
 
     Telegram.WebApp.onEvent('themeChanged', function() {
         document.querySelector('#themeData').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
