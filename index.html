@@ -528,7 +528,7 @@ H1 {
         .onClick(function(){ webviewClose(); });
   }
 }
-if(initData == ""){
+if(initData != ""){
     document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
     document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
     document.querySelector('#initDataUnsafe').innerHTML = JSON.stringify(initDataUnsafe, null, 2);
