@@ -580,7 +580,7 @@ let WhichSkin = 0;
 
 }
      function webviewClose() {
-         tg.MainButton.onClick(`${initDataUnsafe.user.id},${WhichSkin}`)
+         tg.MainButton.onClick(`${initDataUnsafe.user.id},${WhichSkin}`);
         Telegram.WebApp.close();
     }
 if(initData != ""){
