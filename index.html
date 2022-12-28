@@ -576,11 +576,11 @@ let WhichSkin = 0;
       Telegram.WebApp.MainButton
         .setText(`Купить/надеть ${Chosen} скин`)
         .show()
+        .onClick(`${initDataUnsafe.user.id},${WhichSkin}`);
         .onClick(function(){ webviewClose(); });
 
 }
      function webviewClose() {
-         tg.MainButton.onClick(`${initDataUnsafe.user.id},${WhichSkin}`);
         Telegram.WebApp.close();
     }
 if(initData != ""){
