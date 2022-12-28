@@ -567,23 +567,22 @@ H1 {
 
 <script type="application/javascript">
     Telegram.WebApp.ready();
-
+let WhichSkin = 0;
     const initData = Telegram.WebApp.initData || '';
     const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
     function alerted(Chosen){
-
+        WhichSkin = Chosen;
       Telegram.WebApp.MainButton
         .setText(`Купить/надеть ${Chosen} скин`)
         .show()
         .onClick(function(){ webviewClose(); });
 
 }
-
-  function webviewClose() {
+     function webviewClose() {
+         tg.MainButton.onClick(`${initDataUnsafe.user.id},${WhichSkin}`)
         Telegram.WebApp.close();
     }
-
 if(initData != ""){
 
 
